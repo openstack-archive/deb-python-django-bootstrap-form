@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+PYTHONS:=$(shell pyversions -vr)
+#PYTHON3S:=$(shell py3versions -vr)
+
+UPSTREAM_GIT = git://github.com/tzangms/django-bootstrap-form.git
+-include /usr/share/openstack-pkg-tools/pkgos.make
+
+%:
+	dh $@ --buildsystem=python_distutils --with python2,sphinxdoc
+
+#override_dh_auto_install:
+#        set -e && for pyvers in $(PYTHONS); do \
+#                python$$pyvers setup.py install --install-layout=deb \
+#                        --root $(CURDIR)/debian/python-django-bootstrap-form; \
+#        done
+
+override_dh_sphinxdoc:
+	PYTHONPATH=$(CURDIR) sphinx-build docs debian/python-bootstrapform-doc/usr/share/doc/python-bootstrapform-doc
+	dh_sphinxdoc -O--buildsystem=python_distutils

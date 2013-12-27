@@ -1,0 +1,5 @@
+python-django-bootstrap-form (3.1.0-1) unstable; urgency=low
+
+  * Initial release. (Closes: #730463)
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 25 Nov 2013 17:44:33 +0800
