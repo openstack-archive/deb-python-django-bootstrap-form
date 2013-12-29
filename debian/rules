@@ -9,12 +9,13 @@ UPSTREAM_GIT = git://github.com/tzangms/django-bootstrap-form.git
 %:
 	dh $@ --buildsystem=python_distutils --with python2,sphinxdoc
 
-#override_dh_auto_install:
-#        set -e && for pyvers in $(PYTHONS); do \
-#                python$$pyvers setup.py install --install-layout=deb \
-#                        --root $(CURDIR)/debian/python-django-bootstrap-form; \
-#        done
-
 override_dh_sphinxdoc:
 	PYTHONPATH=$(CURDIR) sphinx-build docs debian/python-bootstrapform-doc/usr/share/doc/python-bootstrapform-doc
 	dh_sphinxdoc -O--buildsystem=python_distutils
+
+ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
+override_dh_auto_test:
+	set -e && for pyvers in $(PYTHONS); do \
+		python$$pyvers setup.py test ; \
+	done
+endif
