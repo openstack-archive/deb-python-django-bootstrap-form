@@ -8,7 +8,8 @@ Uploaders: Julien Danjou <acid@debian.org>,
 Build-Depends: debhelper (>= 9),
                python-all (>= 2.6.6-3~),
                python-setuptools,
-               python-sphinx (>= 1.0.7+dfsg)
+               python-sphinx (>= 1.0.7+dfsg),
+               python-django
 Standards-Version: 3.9.5
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/python-django-bootstrap-form.git
 Vcs-Git: git://anonscm.debian.org/openstack/python-django-bootstrap-form.git
