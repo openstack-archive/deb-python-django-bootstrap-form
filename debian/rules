@@ -13,6 +13,10 @@ override_dh_sphinxdoc:
 	PYTHONPATH=$(CURDIR) sphinx-build docs debian/python-bootstrapform-doc/usr/share/doc/python-bootstrapform-doc
 	dh_sphinxdoc -O--buildsystem=python_distutils
 
+override_dh_install:
+	dh_install -O--buildsystem=python_distutils
+	rm -rf $(CURDIR)debian/python-bootstrapform/usr/lib/python*/dist-packages/tests
+
 ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
 override_dh_auto_test:
 	set -e && for pyvers in $(PYTHONS); do \
