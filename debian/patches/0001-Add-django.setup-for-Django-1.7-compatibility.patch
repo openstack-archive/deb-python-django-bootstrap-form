@@ -1,0 +1,35 @@
+From a910e8a2c0a8d99008c811eb65096fbaaa7bf9f6 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Rapha=C3=ABl=20Hertzog?= <hertzog@debian.org>
+Date: Fri, 5 Sep 2014 10:05:22 +0200
+Subject: [PATCH 1/2] Add django.setup() for Django 1.7 compatibility
+
+---
+ tests/__init__.py | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/tests/__init__.py b/tests/__init__.py
+index aadc141..4533d82 100644
+--- a/tests/__init__.py
++++ b/tests/__init__.py
+@@ -13,13 +13,16 @@ from django.template import Template, Context
+ from django.core.management import call_command
+ from django import forms
+ 
++import django
++if hasattr(django, 'setup'):
++    django.setup()
+ 
+ TEST_DIR = os.path.abspath(os.path.join(__file__, '..'))
+ 
+ 
+ CHOICES = (
+-    (0, 'Zero'), 
+-    (1, 'One'), 
++    (0, 'Zero'),
++    (1, 'One'),
+     (2, 'Two'),
+ )
+ 
+-- 
+2.1.0
+

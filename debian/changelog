@@ -1,3 +1,10 @@
+python-django-bootstrap-form (3.1.0-4) unstable; urgency=medium
+
+  * Added patches for Django 1.7 (Closes: #755656). Thanks to Raphael Hertzog
+    for the bug report and patches.
+
+ -- Thomas Goirand <zigo@debian.org>  Sun, 07 Sep 2014 07:37:50 +0000
+
 python-django-bootstrap-form (3.1.0-3) unstable; urgency=medium
 
   * Do not package the test folder (Closes: #733729).
