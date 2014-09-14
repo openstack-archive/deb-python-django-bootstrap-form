@@ -1,6 +1,7 @@
 python-django-bootstrap-form (3.1.0-5) unstable; urgency=medium
 
   * Added Python 3 support (Closes: #761294).
+  * Added doc-base registration.
 
  -- Thomas Goirand <zigo@debian.org>  Sun, 14 Sep 2014 18:20:33 +0800
 

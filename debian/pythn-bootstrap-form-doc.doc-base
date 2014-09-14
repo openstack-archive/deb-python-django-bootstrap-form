@@ -1,0 +1,9 @@
+Document: bootstrap-form-doc
+Title: bootstrap-form Documentation
+Author: N/A
+Abstract: Sphinx documentation for bootstrap-form
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python-bootstrap-form-doc/html/index.html
+Files: /usr/share/doc/python-bootstrap-form-doc/html/*
