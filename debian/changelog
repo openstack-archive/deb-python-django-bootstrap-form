@@ -1,3 +1,9 @@
+python-django-bootstrap-form (3.1.0-5) unstable; urgency=medium
+
+  * Added Python 3 support (Closes: #761294).
+
+ -- Thomas Goirand <zigo@debian.org>  Sun, 14 Sep 2014 18:20:33 +0800
+
 python-django-bootstrap-form (3.1.0-4) unstable; urgency=medium
 
   * Added patches for Django 1.7 (Closes: #755656). Thanks to Raphael Hertzog
