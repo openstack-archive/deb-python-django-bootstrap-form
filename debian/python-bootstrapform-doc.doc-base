@@ -1,0 +1,9 @@
+Document: bootstrapform-doc
+Title: django-bootstrap-form Documentation
+Author: N/A
+Abstract: Sphinx documentation for bootstrap-form
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python-bootstrapform-doc/html/index.html
+Files: /usr/share/doc/python-bootstrapform-doc/html/*
