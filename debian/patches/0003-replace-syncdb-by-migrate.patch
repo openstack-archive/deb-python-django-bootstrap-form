@@ -1,0 +1,17 @@
+Description: Replace syncdb by migrate
+ Upstream Django moved from syncdb to migrate in release 1.9. This fixes it.
+Author: Thomas Goirand <zigo@debian.org>
+Forwarded: no
+Last-Update: 2015-12-23
+
+--- python-django-bootstrap-form-3.1.0.orig/tests/__init__.py
++++ python-django-bootstrap-form-3.1.0/tests/__init__.py
+@@ -41,7 +41,7 @@ class ExampleForm(forms.Form):
+ 
+ class BootstrapTemplateTagTests(TestCase):
+     def setUp(self):
+-        call_command('syncdb', interactive=False)
++        call_command('migrate', interactive=False)
+         self.maxDiff = None
+ 
+     @classmethod

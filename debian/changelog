@@ -1,3 +1,9 @@
+python-django-bootstrap-form (3.1.0-6) unstable; urgency=medium
+
+  * Switch from syncdb to migrate, which fixes FTBFS (Closes: #806362).
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 23 Dec 2015 09:48:16 +0000
+
 python-django-bootstrap-form (3.1.0-5) unstable; urgency=medium
 
   * Added Python 3 support (Closes: #761294).
