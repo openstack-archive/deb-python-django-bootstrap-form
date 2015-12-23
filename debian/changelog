@@ -2,6 +2,7 @@ python-django-bootstrap-form (3.1.0-6) unstable; urgency=medium
 
   * Switch from syncdb to migrate, which fixes FTBFS (Closes: #806362).
   * Watch file now using the PyPi redirector.
+  * Standards-Version bumped to 3.9.6 (no change).
 
  -- Thomas Goirand <zigo@debian.org>  Wed, 23 Dec 2015 09:48:16 +0000
 

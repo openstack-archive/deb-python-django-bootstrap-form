@@ -4,22 +4,22 @@ Priority: optional
 Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
 Uploaders: Thomas Goirand <zigo@debian.org>,
 Build-Depends: debhelper (>= 9),
-               python-all (>= 2.6.6-3~),
+               python-all,
                python-setuptools,
-               python-sphinx (>= 1.0.7+dfsg),
-               python-django,
-               python3-django,
-               python3-all (>= 3.2),
-               python3-setuptools
-Standards-Version: 3.9.5
+               python-sphinx,
+               python3-all,
+               python3-setuptools,
+Build-Depends-Indep: python-django,
+                     python3-django,
+Standards-Version: 3.9.6
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/python-django-bootstrap-form.git
 Vcs-Git: git://anonscm.debian.org/openstack/python-django-bootstrap-form.git
 Homepage: http://github.com/tzangms/django-bootstrap-form
 
 Package: python-bootstrapform
 Architecture: all
-Pre-Depends: dpkg (>= 1.15.6~)
-Depends: ${misc:Depends}, ${python:Depends}
+Depends: ${misc:Depends},
+         ${python:Depends},
 Description: generate twitter-bootstrap form output for django form - Python 2.x
  Django bootstrap form generates twitter-bootstrap form output for django form.
  A simple Django template tag to work with twitter bootstrap.
@@ -28,8 +28,8 @@ Description: generate twitter-bootstrap form output for django form - Python 2.x
 
 Package: python3-bootstrapform
 Architecture: all
-Pre-Depends: dpkg (>= 1.15.6~)
-Depends: ${misc:Depends}, ${python3:Depends}
+Depends: ${misc:Depends},
+         ${python3:Depends},
 Description: generate twitter-bootstrap form output for django form - Python 3.x
  Django bootstrap form generates twitter-bootstrap form output for django form.
  A simple Django template tag to work with twitter bootstrap.
@@ -39,8 +39,8 @@ Description: generate twitter-bootstrap form output for django form - Python 3.x
 Package: python-bootstrapform-doc
 Section: doc
 Architecture: all
-Pre-Depends: dpkg (>= 1.15.6~)
-Depends: ${misc:Depends}, ${sphinxdoc:Depends}
+Depends: ${misc:Depends},
+         ${sphinxdoc:Depends},
 Description: generate twitter-bootstrap form output for django form - doc
  Django bootstrap form generates twitter-bootstrap form output for django form.
  A simple Django template tag to work with twitter bootstrap.
