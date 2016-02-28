@@ -14,7 +14,7 @@ Build-Depends-Indep: python-django,
 Standards-Version: 3.9.6
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/python-django-bootstrap-form.git
 Vcs-Git: git://anonscm.debian.org/openstack/python-django-bootstrap-form.git
-Homepage: http://github.com/tzangms/django-bootstrap-form
+Homepage: https://github.com/tzangms/django-bootstrap-form
 
 Package: python-bootstrapform
 Architecture: all

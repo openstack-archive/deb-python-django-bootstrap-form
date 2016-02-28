@@ -1,3 +1,9 @@
+python-django-bootstrap-form (3.1.0-7) UNRELEASED; urgency=medium
+
+  * Fixed homepage (https).
+
+ -- Ondřej Nový <novy@ondrej.org>  Sun, 28 Feb 2016 15:35:54 +0100
+
 python-django-bootstrap-form (3.1.0-6) unstable; urgency=medium
 
   * Switch from syncdb to migrate, which fixes FTBFS (Closes: #806362).
