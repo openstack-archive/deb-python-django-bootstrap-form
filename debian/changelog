@@ -2,6 +2,7 @@ python-django-bootstrap-form (3.1.0-7) UNRELEASED; urgency=medium
 
   * Fixed homepage (https).
   * Fixed VCS URLs (https).
+  * d/rules: Changed UPSTREAM_GIT protocol to https
 
  -- Ondřej Nový <novy@ondrej.org>  Sun, 28 Feb 2016 15:35:54 +0100
 
