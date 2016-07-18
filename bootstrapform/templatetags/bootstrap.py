@@ -1,4 +1,4 @@
-from django import forms
+from django import forms, VERSION as django_version
 from django.template import Context
 from django.template.loader import get_template
 from django import template
@@ -20,39 +20,35 @@ def bootstrap_inline(element):
 
 
 @register.filter
-def bootstrap_horizontal(element, label_cols={}):
-    if not label_cols:
-        label_cols = 'col-sm-2 col-lg-2'
+def bootstrap_horizontal(element, label_cols='col-sm-2 col-lg-2'):
 
-    markup_classes = {'label': label_cols,
-            'value': '',
-            'single_value': ''}
+    markup_classes = {'label': label_cols, 'value': '', 'single_value': ''}
 
     for cl in label_cols.split(' '):
-        splited_class = cl.split('-')
+        splitted_class = cl.split('-')
 
         try:
-            value_nb_cols = int(splited_class[-1])
+            value_nb_cols = int(splitted_class[-1])
         except ValueError:
             value_nb_cols = config.BOOTSTRAP_COLUMN_COUNT
 
         if value_nb_cols >= config.BOOTSTRAP_COLUMN_COUNT:
-            splited_class[-1] = config.BOOTSTRAP_COLUMN_COUNT
+            splitted_class[-1] = config.BOOTSTRAP_COLUMN_COUNT
         else:
             offset_class = cl.split('-')
             offset_class[-1] = 'offset-' + str(value_nb_cols)
-            splited_class[-1] = str(config.BOOTSTRAP_COLUMN_COUNT - value_nb_cols)
+            splitted_class[-1] = str(config.BOOTSTRAP_COLUMN_COUNT - value_nb_cols)
             markup_classes['single_value'] += ' ' + '-'.join(offset_class)
-            markup_classes['single_value'] += ' ' + '-'.join(splited_class)
+            markup_classes['single_value'] += ' ' + '-'.join(splitted_class)
 
-        markup_classes['value'] += ' ' + '-'.join(splited_class)
+        markup_classes['value'] += ' ' + '-'.join(splitted_class)
 
     return render(element, markup_classes)
 
-
+@register.filter
 def add_input_classes(field):
-    if not is_checkbox(field) and not is_multiple_checkbox(field) and not is_radio(field) \
-        and not is_file(field):
+    if not is_checkbox(field) and not is_multiple_checkbox(field) \
+       and not is_radio(field) and not is_file(field):
         field_classes = field.field.widget.attrs.get('class', '')
         field_classes += ' form-control'
         field.field.widget.attrs['class'] = field_classes
@@ -64,7 +60,7 @@ def render(element, markup_classes):
     if element_type == 'boundfield':
         add_input_classes(element)
         template = get_template("bootstrapform/field.html")
-        context = Context({'field': element, 'classes': markup_classes})
+        context = Context({'field': element, 'classes': markup_classes, 'form': element.form})
     else:
         has_management = getattr(element, 'management_form', None)
         if has_management:
@@ -80,6 +76,9 @@ def render(element, markup_classes):
 
             template = get_template("bootstrapform/form.html")
             context = Context({'form': element, 'classes': markup_classes})
+
+        if django_version >= (1, 8):
+            context = context.flatten()
 
     return template.render(context)
 

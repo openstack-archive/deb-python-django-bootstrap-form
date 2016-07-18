@@ -1,8 +1,10 @@
 *.pyc
+*.egg
 *.egg-info
 .DS_Store
 docs/_build
 /build
 /dist
-
->>>>>>> aee2b719b27498f1b3dcbb1909a8443ff6d1cf9f
+.cache
+.tox
+.python-version

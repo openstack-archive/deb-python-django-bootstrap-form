@@ -1,16 +1,9 @@
 import os
-import sys
+from distutils.version import StrictVersion
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'tests.test_settings'
-
-parent = os.path.dirname(os.path.dirname(
-            os.path.abspath(__file__)))
-
-sys.path.insert(0, parent)
-
+import django
 from django.test import TestCase
 from django.template import Template, Context
-from django.core.management import call_command
 from django import forms
 
 
@@ -22,6 +15,12 @@ CHOICES = (
     (1, 'One'), 
     (2, 'Two'),
 )
+
+try:
+    # required by Django 1.7 and later
+    django.setup()
+except:
+    pass
 
 class ExampleForm(forms.Form):
     char_field = forms.CharField()
@@ -36,15 +35,22 @@ class ExampleForm(forms.Form):
 
 
 class BootstrapTemplateTagTests(TestCase):
-    def setUp(self):
-        call_command('syncdb', interactive=False)
+    maxDiff = None
 
     def test_basic_form(self):
         form = ExampleForm()
 
         html = Template("{% load bootstrap %}{{ form|bootstrap }}").render(Context({'form': form}))
 
-        tpl = os.path.join('fixtures', 'basic.html')
+
+        if StrictVersion(django.get_version()) >= StrictVersion('1.7'):
+            fixture = 'basic.html'
+        elif StrictVersion(django.get_version()) >= StrictVersion('1.6'):
+            fixture = 'basic_dj16.html'
+        else:
+            fixture = 'basic_old.html'
+
+        tpl = os.path.join('fixtures', fixture)
         with open(os.path.join(TEST_DIR, tpl)) as f:
             content = f.read()
 
@@ -55,7 +61,14 @@ class BootstrapTemplateTagTests(TestCase):
 
         html = Template("{% load bootstrap %}{{ form|bootstrap_horizontal }}").render(Context({'form': form}))
 
-        tpl = os.path.join('fixtures', 'horizontal.html')
+        if StrictVersion(django.get_version()) >= StrictVersion('1.7'):
+            fixture = 'horizontal.html'
+        elif StrictVersion(django.get_version()) >= StrictVersion('1.6'):
+            fixture = 'horizontal_dj16.html'
+        else:
+            fixture = 'horizontal_old.html'
+        
+        tpl = os.path.join('fixtures', fixture)
         with open(os.path.join(TEST_DIR, tpl)) as f:
             content = f.read()
 
