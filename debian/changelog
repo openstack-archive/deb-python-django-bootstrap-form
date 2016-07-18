@@ -8,6 +8,7 @@ python-django-bootstrap-form (3.2.1-1) unstable; urgency=medium
 
   [ Thomas Goirand ]
   * New upstream release.
+  * Removed all patches.
 
  -- Thomas Goirand <zigo@debian.org>  Mon, 18 Jul 2016 07:59:44 +0000
 
