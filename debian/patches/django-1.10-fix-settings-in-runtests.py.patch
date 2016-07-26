@@ -1,6 +1,6 @@
 Description: Fix settings in runtests.py
 Author: Thomas Goirand <zigo@debian.org>
-Forwarded: no
+Forwarded: https://github.com/tzangms/django-bootstrap-form/pull/86
 Last-Update: 2016-07-26
 
 --- python-django-bootstrap-form-3.2.1.orig/runtests.py

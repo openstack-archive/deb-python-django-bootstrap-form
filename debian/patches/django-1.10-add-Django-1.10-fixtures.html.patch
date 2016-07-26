@@ -1,6 +1,6 @@
 Description: Add Django 1.10 fixtures
 Author: Thomas Goirand <zigo@debian.org>
-Forwarded: no
+Forwarded: https://github.com/tzangms/django-bootstrap-form/pull/86
 Last-Update: 2016-07-26
 
 --- /dev/null
