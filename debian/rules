@@ -1,10 +1,7 @@
 #!/usr/bin/make -f
 
-PYTHONS:=$(shell pyversions -vr)
-PYTHON3S:=$(shell py3versions -vr)
-
 UPSTREAM_GIT := https://github.com/tzangms/django-bootstrap-form.git
--include /usr/share/openstack-pkg-tools/pkgos.make
+include /usr/share/openstack-pkg-tools/pkgos.make
 
 %:
 	dh $@ --buildsystem=python_distutils --with python2,python3,sphinxdoc
@@ -14,15 +11,7 @@ override_dh_sphinxdoc:
 	dh_sphinxdoc -O--buildsystem=python_distutils
 
 override_dh_auto_install:
-	set -e && for pyvers in $(PYTHONS); do \
-		python$$pyvers setup.py install --install-layout=deb \
-			--root $(CURDIR)/debian/python-bootstrapform; \
-	done
-	set -e && for pyvers in $(PYTHON3S); do \
-		python$$pyvers setup.py install --install-layout=deb \
-			--root $(CURDIR)/debian/python3-bootstrapform; \
-	done
-	rm -r $(CURDIR)/debian/python*-bootstrapform/usr/lib/python*/dist-packages/tests/
+	pkgos-dh_auto_install
 
 ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
 override_dh_auto_test:
