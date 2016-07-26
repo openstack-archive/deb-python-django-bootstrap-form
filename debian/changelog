@@ -14,6 +14,7 @@ python-django-bootstrap-form (3.2.1-1) unstable; urgency=medium
     - django-1.10-add-Django-1.10-fixtures.html.patch
   * Using pkgos-dh_auto_install from openstack-pkg-tools >= 52~.
   * Standards-Version is now 3.9.8 (no change).
+  * Fixed debian/copyright ordering.
 
  -- Thomas Goirand <zigo@debian.org>  Mon, 18 Jul 2016 07:59:44 +0000
 

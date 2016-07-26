@@ -3,14 +3,14 @@ Upstream-Name: django-bootstrap-form
 Upstream-Contact: tzangms <tzangms@gmail.com>
 Source: https://github.com/tzangms/django-bootstrap-form
 
-Files: debian/*
-Copyright: (c) 2013, Thomas Goirand <zigo@debian.org>
-License: BSD-3-clause
-
 Files: *
 Copyright: (c) 2011-2012, tzangms <tzangms@gmail.com>
            (c) 2011, Matt Austin <matt.austin@thecut.net.au>
            (c) 2011, Roberto Rosario <Roberto.Rosario.Gonzalez@gmail.com>
+License: BSD-3-clause
+
+Files: debian/*
+Copyright: (c) 2013-2016, Thomas Goirand <zigo@debian.org>
 License: BSD-3-clause
 
 License: BSD-3-clause
