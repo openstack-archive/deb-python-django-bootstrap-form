@@ -12,7 +12,6 @@ python-django-bootstrap-form (3.2.1-1) unstable; urgency=medium
   * Added patch:
     - django-1.10-fix-settings-in-runtests.py.patch
     - django-1.10-add-Django-1.10-fixtures.html.patch
-  * Using pkgos-dh_auto_install from openstack-pkg-tools >= 52~.
   * Standards-Version is now 3.9.8 (no change).
   * Fixed debian/copyright ordering.
 

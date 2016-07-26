@@ -11,7 +11,15 @@ override_dh_sphinxdoc:
 	dh_sphinxdoc -O--buildsystem=python_distutils
 
 override_dh_auto_install:
-	pkgos-dh_auto_install
+	set -e ; for pyvers in $(PYTHONS); do \
+		python$$pyvers setup.py install --install-layout=deb \
+			--root $(CURDIR)/debian/python-bootstrapform; \
+	done
+	set -e ; for pyvers in $(PYTHON3S); do \
+		python$$pyvers setup.py install --install-layout=deb \
+			--root $(CURDIR)/debian/python3-bootstrapform; \
+	done
+	rm -rf $(CURDIR)/debian/python*/usr/lib/python*/dist-packages/*.pth
 
 ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
 override_dh_auto_test:
