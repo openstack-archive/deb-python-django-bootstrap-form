@@ -1,1 +1,2 @@
 django-1.10-fix-settings-in-runtests.py.patch
+django-1.10-add-Django-1.10-fixtures.html.patch
