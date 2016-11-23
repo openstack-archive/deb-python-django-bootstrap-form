@@ -6,6 +6,7 @@ python-django-bootstrap-form (3.2.1-2) UNRELEASED; urgency=medium
   [ Ondřej Nový ]
   * d/s/options: extend-diff-ignore of .gitreview
   * d/control: Using OpenStack's Gerrit as VCS URLs.
+  * Bumped debhelper compat version to 10
 
  -- Thomas Goirand <zigo@debian.org>  Tue, 26 Jul 2016 09:22:36 +0000
 
